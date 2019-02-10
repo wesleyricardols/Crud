@@ -1,0 +1,33 @@
+﻿@model Crud.Web.Models.CrudModel
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+<hr />
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.FullName)
+        @Html.TextBoxFor(model => model.FullName, new { @class = "form-control col-md-12", @maxlength = 100, @readonly = "readonly" })
+    </div>
+
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.EmailAddress)
+        @Html.TextBoxFor(model => model.EmailAddress, new { @type = "email", @class = "form-control col-md-12", @maxlength = 100, @readonly = "readonly" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-12">
+        @Html.LabelFor(model => model.PhoneNumber)
+        @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control col-md-2", @maxlength = 15, @readonly = "readonly" })
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.ActionLink("Listagem", "Index", null, new { @class = "btn btn-danger float-righ", @title = "Editar" })
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model Crud.Web.Models.CrudModel
+
+@{
+    ViewBag.Title = "Edição";
+}
+
+<h2>Edição</h2>
+<hr />
+
+@using (Html.BeginForm("Edit", "Crud", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.FullName)
+            @Html.TextBoxFor(model => model.FullName, new { @class = "form-control col-md-12", @maxlength = 100 })
+
+            <em>@Html.ValidationMessageFor(m => m.FullName, null, new { @class = "text-danger italic" })</em>
+        </div>
+
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.EmailAddress)
+            @Html.TextBoxFor(model => model.EmailAddress, new { @type = "email", @class = "form-control col-md-12", @maxlength = 100 })
+
+            <em>@Html.ValidationMessageFor(m => m.EmailAddress, null, new { @class = "text-danger italic" })</em>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            @Html.LabelFor(model => model.PhoneNumber)
+            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control col-md-2", @maxlength = 15 })
+
+            <em>@Html.ValidationMessageFor(m => m.PhoneNumber, null, new { @class = "text-danger italic" })</em>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary float-right" type="submit"><i class="fa fa-save"></i> Salvar</button>
+            @Html.ActionLink("Listagem", "Index", null, new { @class = "btn btn-danger float-righ", @title = "Editar" })
+        </div>
+    </div>
+}

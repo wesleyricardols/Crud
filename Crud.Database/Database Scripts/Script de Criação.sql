@@ -1,0 +1,11 @@
+CREATE DATABASE Crud;
+USE Crud;
+
+CREATE TABLE Crud (
+	[CrudId] [INT] IDENTITY(1,1) NOT NULL,
+	[FullName] [VARCHAR](100) NOT NULL,
+	[EmailAddress] [VARCHAR](100) NOT NULL,
+	[PhoneNumber] [VARCHAR](15) NOT NULL
+
+	CONSTRAINT [PkCrud] PRIMARY KEY ([CrudId])
+);
